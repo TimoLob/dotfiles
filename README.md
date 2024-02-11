@@ -3,17 +3,13 @@
 Install dependencies:
 
 ```bash
-yay -S kitty
-yay -S zsh
+yay -S kitty zsh stow 
 yay -S ttf-meslo-nerd-font-powerlevel10k
 yay -S zsh-theme-powerlevel10k-git
-yay -S stow
-#echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 chsh -s $(which zsh)
-git clone this repo
+git clone https://github.com/TimoLob/dotfiles
 cd dotfiles
 stow .
 ```
 
-Run `arandr` to setup monitor config and save as monior.sh.
-
+Run `arandr` to setup monitor configuration and save as `~/.screenlayout/monitor.sh`.
