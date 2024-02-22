@@ -1,9 +1,7 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
---
 local map = vim.keymap.set
 
+vim.g.mapleader = " "
+map("n","<leader>pv",vim.cmd.Ex)
 -- Ctrl + Z and Ctrl + Y Undo/Redo
 map("n", "<C-Z>", "u")
 map("n", "<C-Y>", "<C-R>")
@@ -36,3 +34,4 @@ map("t", "<C-LEFT>", "<cmd>:wincmd h<CR>", { silent = true })
 map("t", "<C-RIGHT>", "<cmd>:wincmd l<CR>", { silent = true })
 
 map("n", "C", ':let @/ = ""<CR>', { silent = true })
+
