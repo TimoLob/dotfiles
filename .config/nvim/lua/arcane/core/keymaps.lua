@@ -11,7 +11,7 @@ local TERM = os.getenv("TERM")
 
 local map = vim.keymap.set
 
-map("n","<leader>pv",vim.cmd.Ex)
+map("n","<leader>pv","<cmd>Neotree current<CR>")
 -- Ctrl + Z and Ctrl + Y Undo/Redo
 map("n", "<C-Z>", "u")
 map("n", "<C-Y>", "<C-R>")
