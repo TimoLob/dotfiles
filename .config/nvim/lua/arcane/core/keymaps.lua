@@ -1,6 +1,16 @@
+local nnoremap = require("arcane.core.keymap_utils").nnoremap
+local vnoremap = require("arcane.core.keymap_utils").vnoremap
+local inoremap = require("arcane.core.keymap_utils").inoremap
+local tnoremap = require("arcane.core.keymap_utils").tnoremap
+local xnoremap = require("arcane.core.keymap_utils").xnoremap
+
+
+local TERM = os.getenv("TERM")
+
+
+
 local map = vim.keymap.set
 
-vim.g.mapleader = " "
 map("n","<leader>pv",vim.cmd.Ex)
 -- Ctrl + Z and Ctrl + Y Undo/Redo
 map("n", "<C-Z>", "u")
@@ -33,5 +43,18 @@ map("t", "<C-DOWN>", "<cmd>:wincmd j<CR>", { silent = true })
 map("t", "<C-LEFT>", "<cmd>:wincmd h<CR>", { silent = true })
 map("t", "<C-RIGHT>", "<cmd>:wincmd l<CR>", { silent = true })
 
+-- Ctrl + S to save
+map("n","<C-S>","<cmd>w<CR>", {silent=true})
+map("i","<C-S>","<cmd>w<CR><ESC>", {silent=true})
+
+-- Clear search highlightin
 map("n", "C", ':let @/ = ""<CR>', { silent = true })
 
+-- Telescope keybinds
+map("n","<leader>ff","<cmd>Telescope find_files<cr>", {desc = "Fuzzy find files in cwd" })
+map("n","<leader>fr","<cmd>Telescope oldfiles<cr>", {desc = "Fuzzy find recent files" })
+map("n","<leader>fs","<cmd>Telescope live_grep<cr>", {desc = "Find string in cwd" })
+map("n","<leader>fc","<cmd>Telescope grep_string<cr>", {desc = "Find string under cursor in cwd" })
+
+-- Neotree
+map("n","<leader>ee","<cmd>Neotree toggle<CR>", {desc = "Toggle neotree"})
