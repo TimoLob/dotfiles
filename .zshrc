@@ -43,3 +43,6 @@ alias cls='clear'
 alias anylogic='/opt/anylogic/anylogic'
 alias edo='~/Apps/ProjectIgnis/EDOPro'
 alias :qa="exit"
+
+# Created by `pipx` on 2024-03-18 14:38:29
+export PATH="$PATH:/home/timo/.local/bin"
