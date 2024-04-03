@@ -11,6 +11,14 @@ local TERM = os.getenv("TERM")
 
 local map = vim.keymap.set
 
+
+
+-- TIP: Disable arrow keys in normal mode
+map("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
+map("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
+map("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
+map("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
+
 map("n","<leader>pv","<cmd>Neotree current<CR>")
 -- Ctrl + Z and Ctrl + Y Undo/Redo
 map("n", "<C-Z>", "u")

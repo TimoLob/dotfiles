@@ -44,5 +44,11 @@ alias anylogic='/opt/anylogic/anylogic'
 alias edo='~/Apps/ProjectIgnis/EDOPro'
 alias :qa="exit"
 
+
+
+# Make the del key work again
+bindkey "^[[3~" delete-char
+
+
 # Created by `pipx` on 2024-03-18 14:38:29
 export PATH="$PATH:/home/timo/.local/bin"
