@@ -1,7 +1,10 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
 
--- vim.cmd([[ hi Normal guibg=NONE ctermbg=NONE ]])
--- vim.cmd([[ hi NormalNC guibg=NONE ctermbg=NONE ]])
--- vim.cmd([[ hi NeoTreeNormal guibg=NONE ctermbg=NONE ]])
--- vim.cmd([[ hi NeoTreeNormalNC guibg=NONE ctermbg=NONE ]])
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(_)
+    if vim.lsp.inlay_hint then
+      vim.lsp.inlay_hint.enable(0, true)
+    end
+  end,
+})
