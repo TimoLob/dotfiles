@@ -43,3 +43,5 @@ alias cls='clear'
 alias anylogic='/opt/anylogic/anylogic'
 alias edo='~/Apps/ProjectIgnis/EDOPro'
 alias :qa="exit"
+
+bindkey "^[[3~" delete-char
