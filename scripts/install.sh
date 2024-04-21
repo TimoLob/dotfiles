@@ -3,7 +3,7 @@
 cd ~
 git clone https://github.com/TimoLob/dotfiles.git 
 
-yay -S kitty zsh stow ttf-meslo-nerd-font-powerlevel10k zsh-theme-powerlevel10k-git ripgrep fd zoxide neovim-git --noconfirm
+yay -S kitty zsh tldr stow ttf-meslo-nerd-font-powerlevel10k zsh-theme-powerlevel10k-git ripgrep fd zoxide neovim-git --noconfirm
 
 
 if [ -d "$HOME/.config/kitty" ]; then
@@ -31,5 +31,9 @@ git clone https://github.com/TimoLob/my_neovim_config.git .config/nvim
 
 stow .
 cd scripts
-source ./set_bg.sh
 chsh -s $(which zsh)
+
+echo "All done. I recommend you to execute set_bg.sh in the dotfiles/scipts folder to set your terminal and i3 background."
+
+echo "If you are using multiple monitors, then I recommend you to execute arandr and save your monitor configuration to ~/.screenlayout/monitor.sh"
+
