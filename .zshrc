@@ -45,3 +45,5 @@ alias edo='~/Apps/ProjectIgnis/EDOPro'
 alias :qa="exit"
 
 bindkey "^[[3~" delete-char
+
+eval "$(zoxide init zsh) --cmd cd"
