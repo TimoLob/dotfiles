@@ -13,3 +13,9 @@ stow .
 ```
 
 Run `arandr` to setup monitor configuration and save as `~/.screenlayout/monitor.sh`.
+
+## WIP - One liner installation
+
+```bash
+curl "https://raw.githubusercontent.com/TimoLob/dotfiles/main/scripts/install.sh" | sh
+```
