@@ -410,7 +410,8 @@ exec --no-startup-id dex --autostart --environment i3
 # configure multiple keyboard layouts and hotkey to switch (Alt+CAPSLOCK in this example)
 #exec --no-startup-id setxkbmap -layout 'us,sk' -variant altgr-intl,qwerty -option 'grp:alt_caps_toggle'
 # EurKey Layout : https://eurkey.steffen.bruentjen.eu/download.html
-exec --no-startup-id setxkbmap eu
+# exec --no-startup-id setxkbmap eu
+exec --no-startup-id ~/.config/i3/scripts/set_keyboard_layout.sh
 # start conky:
 #exec_always --no-startup-id conky
 
@@ -424,7 +425,7 @@ exec --no-startup-id ~/.screenlayout/monitor.sh
 # set wallpaper
 # exec --no-startup-id sleep 2 && nitrogen --restore
 # exec --no-startup-id sleep 1 && feh --bg-fill /usr/share/endeavouros/backgrounds/endeavouros-wallpaper.png
-exec --no-startup-id feh --bg-scale /usr/share/endeavouros/backgrounds/eos_wallpapers_community/CASSINI-2-MAIN-LOGO.png
+exec --no-startup-id feh --bg-scale ~/.backgrounds/bg.png
 
 # set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
