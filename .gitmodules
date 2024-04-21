@@ -1,0 +1,3 @@
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = git@github.com:TimoLob/my_neovim_config.git
