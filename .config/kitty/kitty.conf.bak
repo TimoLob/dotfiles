@@ -1,3 +1,0 @@
-font_family MesloLGS NF
-map f1 launch --cwd=current
-map f2 launch --cwd=current --type=tab
