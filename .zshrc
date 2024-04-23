@@ -46,4 +46,4 @@ alias :qa="exit"
 
 bindkey "^[[3~" delete-char
 
-eval "$(zoxide init zsh) --cmd cd"
+eval "$(zoxide init zsh --cmd cd)"
