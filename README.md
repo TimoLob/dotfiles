@@ -15,7 +15,12 @@ stow .
 Run `arandr` to setup monitor configuration and save as `~/.screenlayout/monitor.sh`.
 
 ## WIP - One liner installation
-
+Recommended to run in EndevourOs with i3 installed.
 ```bash
 curl "https://raw.githubusercontent.com/TimoLob/dotfiles/main/scripts/install.sh" | sh
+```
+
+## Ubuntu
+```
+sudo apt install rofi i3blocks thunar
 ```
