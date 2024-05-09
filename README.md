@@ -22,5 +22,5 @@ curl "https://raw.githubusercontent.com/TimoLob/dotfiles/main/scripts/install.sh
 
 ## Ubuntu
 ```
-sudo apt install rofi i3blocks thunar
+sudo apt install rofi i3blocks thunar feh maim
 ```
