@@ -287,7 +287,8 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym $mod+p exec --no-startup-id /usr/local/bin/switch-audio-port
 
 ## App shortcuts
-bindsym $mod+w exec --no-startup-id /usr/bin/firefox
+# bindsym $mod+w exec --no-startup-id /usr/bin/firefox
+bindsym $mod+w exec --no-startup-id /usr/bin/vivaldi-stable
 bindsym $mod+Shift+w exec --no-startup-id /usr/bin/firefox -P
 bindsym $mod+n exec --no-startup-id /usr/bin/thunar
 
@@ -342,6 +343,7 @@ bindsym $mod+Shift+m move workspace to output left
 assign [class="kitty"] $ws1
 assign [class="code"] $ws1
 assign [class="(?i)firefox"] $ws2
+assign [class="Vivaldi-stable"] $ws2
 assign [class="obsidian"] $ws3
 assign [class="Thunar"] $ws3
 assign [class="discord"] $ws4
@@ -351,6 +353,7 @@ assign [class="thunderbird"] $ws5
 # automatic set focus new window if it opens on another workspace than the current:
 for_window [class=kitty] focus
 for_window [class=(?i)firefox] focus
+for_window [class=Vivaldi-stable] focus
 for_window [class=Thunar] focus
 for_window [class=Thunderbird] focus
 for_window [class=obsidian] focus
@@ -461,7 +464,7 @@ exec --no-startup-id /usr/bin/dunst
 #exec --no-startup-id sleep 2 && xfce4-terminal
 #exec --no-startup-id sleep 7 && firefox https://github.com/endeavouros-team/endeavouros-i3wm-setup/blob/main/force-knowledge.md
 #exec --no-startup-id sleep 3 && thunar
-exec firefox
+# exec firefox
 exec kitty
 ###############
 # system tray #
