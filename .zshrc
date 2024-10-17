@@ -37,13 +37,20 @@ export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 alias ls='ls --color=auto'
 alias ll='ls -lav --ignore=..'
 alias cd..='cd ..'
-alias ods='onedrive --synchronize'
+alias ods='onedrive --sync'
 alias vim='nvim'
 alias cls='clear'
 alias anylogic='/opt/anylogic/anylogic'
 alias edo='~/Apps/ProjectIgnis/EDOPro'
 alias :qa="exit"
+alias eukeyboard="setxkbmap eu"
+alias rubvpn="sudo openvpn /etc/openvpn/RUBvpn_Standard.ovpn"
+alias condainit='eval "$(/home/timo/anaconda3/bin/conda shell.zsh hook)" && conda init'
+alias lab="jupyter lab"
 
 bindkey "^[[3~" delete-char
 
 eval "$(zoxide init zsh --cmd cd)"
+eval "$(dircolors ~/.dircolors)"
+
+alias "helpkitty"="cat ~/.config/kitty/kitty.conf"
