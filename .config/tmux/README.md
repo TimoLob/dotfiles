@@ -17,7 +17,7 @@ Horizontal split : `<prefix> %`
 Vertical split : `<prefix> "`  
 Navigate panes : `<prefix> [Left/down/up/right arrow]`  
 Navigate panes : `<prefix> [hjkl]`  
-Close pane : '<prefix> x`  
+Close pane : `<prefix> x`  
 
 ## Sessions
 New Session : Run `tmux` outside of tmux  
