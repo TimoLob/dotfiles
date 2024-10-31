@@ -52,10 +52,13 @@ alias :qa="exit"
 alias eukeyboard="setxkbmap eu"
 alias rubvpn="sudo openvpn /etc/openvpn/RUBvpn_Standard.ovpn"
 alias lab="jupyter lab"
+## Conditional aliases, only use if program is available
+## Replace cat with bat, same thing but with syntax highlighting
 if command -v bat 2>&1 >/dev/null
 then
   alias cat=bat
 fi
+## Replace ls with eza, looks prettier
 if command -v eza 2>&1 >/dev/null
 then
   alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
