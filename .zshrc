@@ -42,7 +42,8 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
 alias ls='ls --color=auto'
-alias ll='ls -lav --ignore=..'
+alias ll='ls -lav ignore=..'
+alias lsa="ls -a"
 alias cd..='cd ..'
 alias ods='onedrive --sync'
 alias vim='nvim'
@@ -51,6 +52,16 @@ alias :qa="exit"
 alias eukeyboard="setxkbmap eu"
 alias rubvpn="sudo openvpn /etc/openvpn/RUBvpn_Standard.ovpn"
 alias lab="jupyter lab"
+if command -v bat 2>&1 >/dev/null
+then
+  alias cat=bat
+fi
+if command -v eza 2>&1 >/dev/null
+then
+  alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
+  alias ll="eza --color=always --all --long"
+  alias lstree="ls --tree --level"
+fi
 
 # Keybindings
 bindkey "^[[3~" delete-char # Make del work
