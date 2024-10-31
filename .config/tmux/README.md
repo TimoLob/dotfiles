@@ -21,7 +21,7 @@ Close pane : '<prefix> x`
 
 ## Sessions
 New Session : Run `tmux` outside of tmux  
-New Session : '<prefix> :new`  
+New Session : `<prefix> :new`  
 New named session : `tmux -s <name>`  
 List active sessions : `tmux ls`  
 List active sessions : `<prefix> s`  
