@@ -1,0 +1,21 @@
+configuration{
+    modi: "drun,window,combi";
+    combi-modi: "window,drun";
+    icon-theme: "Papirus";
+    show-icons: true;
+    terminal: "alacritty";
+    drun-display-format: "{icon} ➕ {name}";
+    window-format: "{icon} {w} {t} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-combi: " 🖥️  All ";
+    display-drun: " ➕Run"; 
+    display-window: "Windows";
+    sidebar-mode: true;
+    combi-hide-mode-prefix:true;
+    sort:true;
+    sorting-method:"fzf";
+}
+
+@theme "catppuccin-mocha"
