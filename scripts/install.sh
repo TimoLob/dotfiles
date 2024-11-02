@@ -23,7 +23,7 @@ fi
 echo -e "\n==> Installing display manager and related packages"
 if confirm "Do you want to install the display manager and window manager packages?"; then
     echo "Installing lightdm, web-greeter, xorg, and i3-related packages..."
-    yay -S lightdm web-greeter web-greeter-theme-shikai xorg i3 picom polybar feh rofi-rofi-power-menu xclip pulseaudio i3lock arandr
+    yay -S lightdm web-greeter web-greeter-theme-shikai xorg i3 picom polybar feh rofi rofi-power-menu xclip pulseaudio i3lock arandr
     echo "Display manager and window manager packages installed."
     echo "Don't forget to set your greeter-session in /etc/lightdm/lightdm.conf to web-greeter"
     echo "and your web greeter theme and wallpaper folder in /etc/lightdm/web-greeter.yml."
