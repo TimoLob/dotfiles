@@ -29,7 +29,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 exec_always --no-startup-id killall polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
-exec_always --no-startup-id feh --bg-scale ~/.config/backgrounds/sparkle.png
+exec_always --no-startup-id feh --bg-scale ~/.config/backgrounds/bg.png
 
 exec --no-startup-id picom
 exec_always --no-startup-id setxkbmap eu

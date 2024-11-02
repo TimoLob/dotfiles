@@ -136,7 +136,7 @@ echo -e "\n==> Installation script completed!\n"
 echo "After installation steps:"
 echo "https://wiki.archlinux.org/title/LightDM - How to setup web-greeter <- Important"
 echo "https://github.com/TheWisker/Shikai - How to setupt greeter theme"
-
+echo "Setup background for i3 and kitty (~/.config/{bg.png or termbg.png}), you can use the set_bg script to choose from default backgrounds"
 
 
 echo -e "\n"
