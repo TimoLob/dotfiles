@@ -70,7 +70,7 @@ fi
 echo -e "\n==> Installing shell utilities"
 if confirm "Do you want to install shell utilities?"; then
     echo "Installing Kitty, Alacritty, Neovim, and other shell utilities..."
-    yay -S kitty alacritty neovim stow zsh starship fzf man-db tldr bat eza jq tmux
+    yay -S kitty alacritty neovim stow zsh starship fzf man-db tldr bat eza jq tmux zoxide
     echo "Shell utilities installed."
 
     # Change shell to zsh
