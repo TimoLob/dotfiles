@@ -7,5 +7,5 @@ BLUR="10x8"
 
 $SCREENSHOT
 magick $PICTURE -blur $BLUR $PICTURE
-i3lock -i $PICTURE
+i3lock -ni $PICTURE
 rm $PICTURE
