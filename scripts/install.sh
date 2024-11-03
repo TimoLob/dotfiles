@@ -60,7 +60,7 @@ fi
 echo -e "\n==> Installing fonts and icon themes"
 if confirm "Do you want to install fonts and icon themes?"; then
     echo "Installing Nerd Fonts and icon themes..."
-    yay -S ttf-meslo-nerd ttf-cascadia-code-nerd ttf-jetbrains-mono-nerd noto-fonts-emoji papirus-icon-theme
+    yay -S ttf-meslo-nerd ttf-cascadia-code-nerd ttf-jetbrains-mono-nerd noto-fonts-emoji papirus-icon-theme ttf-nerd-fonts-symbols
     echo "Fonts and icon themes installed."
 else
     echo "Skipping fonts and icon themes installation."
