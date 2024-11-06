@@ -179,33 +179,63 @@ bindsym $mod+Shift+Tab workspace prev
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+      # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+      # Pressing left will shrink the window’s width.
+      # Pressing right will grow the window’s width.
+      # Pressing up will shrink the window’s height.
+      # Pressing down will grow the window’s height.
+      bindsym h resize shrink width 10 px or 10 ppt
+      bindsym j resize grow height 10 px or 10 ppt
+      bindsym k resize shrink height 10 px or 10 ppt
+      bindsym l resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+      # same bindings, but for the arrow keys
+      bindsym Left resize shrink width 10 px or 10 ppt
+      bindsym Down resize grow height 10 px or 10 ppt
+      bindsym Up resize shrink height 10 px or 10 ppt
+      bindsym Right resize grow width 10 px or 10 ppt
 
 
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+      # back to normal: Enter or Escape or $mod+r
+      bindsym Return mode "default"
+      bindsym Escape mode "default"
+      bindsym $mod+r mode "default"
+      bindsym Ctrl+c "default"
 }
 
 bindsym $mod+r mode "resize"
 
 
+mode "volume" {
+      bindsym Return mode "default"
+      bindsym Escape mode "default"
+      bindsym $mod+v mode "default"
+      bindsym $mod+shift+v mode "default"
+      bindsym Ctrl+c "default"
+
+      # Lower Volume
+      bindsym j exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && refresh_i3status
+      bindsym Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && refresh_i3status
+      bindsym shift+j exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && refresh_i3status
+      bindsym shift+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && refresh_i3status
+      bindsym Ctrl+j exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% && refresh_i3status
+      bindsym Ctrl+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% && refresh_i3status
+      
+      # Increase Volume
+      bindsym k exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && refresh_i3status
+      bindsym Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && refresh_i3status
+      bindsym shift+k exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && refresh_i3status
+      bindsym shift+Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && refresh_i3status
+      bindsym Ctrl+k exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && refresh_i3status
+      bindsym Ctrl+Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && refresh_i3status
+
+      # Mute (m=audio, Ctrl+m = mic)
+      bindsym m exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+      bindsym Ctrl+m exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+}
+
+bindsym $mod+shift+v mode "volume"
 ## Screenshots
 
 ## Screenshot to file (Ctrl+)

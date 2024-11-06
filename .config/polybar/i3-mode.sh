@@ -9,6 +9,9 @@ case "$mode" in
   "resize")
     echo "%{F#FF8800}󰁌%{F-}"
     ;;
+  "volume")
+    echo "%{F#FF8800}󰝝%{F-}"
+    ;;
   *) # Unknown mode
     echo "%{F#FF0000}%{F-}"
     ;;
