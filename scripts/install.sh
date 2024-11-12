@@ -95,7 +95,7 @@ fi
 echo -e "\n==> Installing additional programs"
 if confirm "Do you want to install additional programs (e.g., OneDrive, Obsidian, Discord)?"; then
   echo "Installing additional programs..."
-  yay -S onedrive-abraunegg obsidian discord timeshift vscode zotero vivaldi
+  yay -S nextcloud-client obsidian discord timeshift vscode zotero vivaldi
   echo "Additional programs installed."
 else
   echo "Skipping additional programs installation."
