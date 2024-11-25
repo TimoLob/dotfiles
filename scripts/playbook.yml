@@ -1,0 +1,227 @@
+---
+- name: System Setup Playbook
+  hosts: localhost
+  become: yes
+  vars_prompt:
+    - name: confirm_system_update
+      prompt: "Do you want to update the system before proceeding? (yes/no)"
+      private: no
+    - name: confirm_display_manager
+      prompt: "Do you want to install the display manager and window manager packages? (yes/no)"
+      private: no
+    - name: confirm_enable_lightdm
+      prompt: "Enable lightdm service now? (yes/no)"
+      private: no
+    - name: confirm_network_manager
+      prompt: "Do you want to install NM and printer drivers? (yes/no)"
+      private: no
+    - name: confirm_enable_services
+      prompt: "Do you want to enable NetworkManager and CUPS services on startup? (yes/no)"
+      private: no
+    - name: confirm_firewall
+      prompt: "Do you want to install and apply the default configuration for a firewall? (yes/no)"
+      private: no
+    - name: confirm_fonts
+      prompt: "Do you want to install fonts and icon themes? (yes/no)"
+      private: no
+    - name: confirm_shell_utils
+      prompt: "Do you want to install shell utilities? (yes/no)"
+      private: no
+    - name: confirm_zsh
+      prompt: "Do you want to set zsh as the default shell? (yes/no)"
+      private: no
+    - name: confirm_essential_programs
+      prompt: "Do you want to install essential programs? (yes/no)"
+      private: no
+    - name: confirm_additional_programs
+      prompt: "Do you want to install additional programs? (yes/no)"
+      private: no
+    - name: confirm_multimedia
+      prompt: "Do you want to install multimedia programs (e.g., VLC, Krita, LibreOffice)? (yes/no)"
+      private: no
+    - name: confirm_power_management
+      prompt: "Do you want to install power management tools (e.g., TLP, Powertop)? (yes/no)"
+      private: no
+    - name: confirm_dotfiles
+      prompt: "Do you want to stow your dotfiles now? (yes/no)"
+      private: no
+    - name: confirm_multiple_monitors
+      prompt: "Do you have multiple monitors on this machine? (yes/no)"
+      private: no
+
+  tasks:
+    - name: Update system packages
+      ansible.builtin.command:
+        cmd: yay -Syu
+      when: confirm_system_update == "yes"
+
+    - name: Install display manager and related packages
+      ansible.builtin.package:
+        name:
+          - lightdm
+          - web-greeter
+          - web-greeter-theme-shikai
+          - xorg
+          - i3
+          - picom
+          - polybar
+          - feh
+          - rofi
+          - rofi-power-menu
+          - xclip
+          - pulseaudio
+          - i3lock
+          - arandr
+          - imagemagick
+        state: present
+      when: confirm_display_manager == "yes"
+
+    - name: Enable LightDM service
+      ansible.builtin.systemd:
+        name: lightdm
+        enabled: true
+      when: confirm_enable_lightdm == "yes"
+
+    - name: Install network manager and printing support
+      ansible.builtin.package:
+        name:
+          - networkmanager
+          - network-manager-applet
+          - cups
+          - cups-pdf
+          - system-config-printer
+        state: present
+      when: confirm_network_manager == "yes"
+
+    - name: Enable NetworkManager and CUPS services
+      ansible.builtin.systemd:
+        name: "{{ item }}"
+        enabled: true
+      with_items:
+        - NetworkManager
+        - cups
+      when: confirm_enable_services == "yes"
+
+    - name: Install and configure firewall
+      block:
+        - name: Install UFW
+          ansible.builtin.package:
+            name: ufw
+            state: present
+        - name: Enable UFW service
+          ansible.builtin.systemd:
+            name: ufw
+            state: started
+            enabled: true
+        - name: Configure UFW
+          ansible.builtin.command:
+            cmd: "{{ item }}"
+          with_items:
+            - ufw default deny
+            - ufw allow from 192.168.178.0/24
+            - ufw limit ssh
+            - ufw enable
+      when: confirm_firewall == "yes"
+
+    - name: Install fonts and icon themes
+      ansible.builtin.package:
+        name:
+          - ttf-meslo-nerd
+          - ttf-cascadia-code-nerd
+          - ttf-jetbrains-mono-nerd
+          - noto-fonts-emoji
+          - papirus-icon-theme
+          - ttf-nerd-fonts-symbols
+          - noto-fonts
+        state: present
+      when: confirm_fonts == "yes"
+
+    - name: Install shell utilities
+      ansible.builtin.package:
+        name:
+          - kitty
+          - alacritty
+          - neovim
+          - stow
+          - zsh
+          - starship
+          - fzf
+          - man-db
+          - tldr
+          - bat
+          - eza
+          - jq
+          - tmux
+          - zoxide
+          - ripgrep
+          - fd
+          - lazygit
+        state: present
+      when: confirm_shell_utils == "yes"
+
+    - name: Set zsh as the default shell
+      ansible.builtin.command:
+        cmd: chsh -s "$(which zsh)"
+      when: confirm_zsh == "yes"
+
+    - name: Install essential programs
+      ansible.builtin.package:
+        name:
+          - thunar
+          - firefox
+          - tmux
+          - maim
+        state: present
+      when: confirm_essential_programs == "yes"
+
+    - name: Install additional programs
+      ansible.builtin.package:
+        name:
+          - nextcloud-client
+          - syncthing
+          - obsidian
+          - discord
+          - timeshift
+          - vscode
+          - zotero
+          - vivaldi
+        state: present
+      when: confirm_additional_programs == "yes"
+
+    - name: Install multimedia programs
+      ansible.builtin.package:
+        name:
+          - krita
+          - vlc
+          - libreoffice-fresh
+          - libreoffice-fresh-de
+          - libreoffice-fresh-en-gb
+          - amberol
+        state: present
+      when: confirm_multimedia == "yes"
+
+    - name: Install power management tools
+      block:
+        - name: Install TLP and Powertop
+          ansible.builtin.package:
+            name:
+              - tlp
+              - powertop
+            state: present
+        - name: Enable TLP service
+          ansible.builtin.systemd:
+            name: tlp
+            state: started
+            enabled: true
+      when: confirm_power_management == "yes"
+
+    - name: Stow dotfiles
+      ansible.builtin.command:
+        cmd: stow .
+        chdir: ~/dotfiles/
+      when: confirm_dotfiles == "yes"
+
+    - name: Notify user for multiple monitor setup
+      debug:
+        msg: "Run arandr and save your monitor configuration to ~/.screenlayout/monitor.sh"
+      when: confirm_multiple_monitors == "yes"
