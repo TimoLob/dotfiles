@@ -53,6 +53,26 @@ else
   echo "Skipping NM and printer setup."
 fi
 
+# Network
+echo -e "==> Installing Firewall"
+if confirm "Do you want to install and apply the default configuration for a firewall?"; then
+  echo "Installing and configuring Uncomplicated Firewall (ufw)"
+  yay -S ufw
+  echo "ufw installed"
+  # Enable Firewall and configure
+  sudo systemctl enable ufw.service
+  sudo systemctl start ufw.service
+  echo "ufw services enabled"
+  sudo ufw default deny
+  sudo ufw allow from 192.168.178.0/24
+  sudo ufw limit ssh
+  sudo ufw enable
+  echo "ufw configured, use ufw status to see current configuration"
+
+else
+  echo "Skipping firewall setup."
+fi
+
 # Fonts
 echo -e "\n==> Installing fonts and icon themes"
 if confirm "Do you want to install fonts and icon themes?"; then
